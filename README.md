@@ -7,7 +7,7 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 ## :rocket: Built With
 
 ```
- :page_facing_up: Laravel
+📄 Laravel
 ```
 
 ##  :wrench: Setup
