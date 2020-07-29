@@ -20,7 +20,7 @@ Clone this :open_file_folder:repository on your desktop.
 
 ## :green_book: License
 
-Code in this repository is open-sourced software licensed under the [GPL-3.0 license](https://opensource.org/licenses/GPL-3.0).
+Code in this repository is open-sourced software licensed under the [GPL-3.0 license](https://opensource.org/licenses/GPL-3.0).\
 See the [LICENSE.md](https://github.com/Saul-Lara/Laravel-Marvel-Api/blob/master/LICENSE) file for details.
 
 Saul Hdz Lara
