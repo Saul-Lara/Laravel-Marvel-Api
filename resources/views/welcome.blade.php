@@ -9,7 +9,10 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
+        <link rel="stylesheet" href="{{ url('css/main.css') }}">
+
         <!-- Styles -->
+        <!-- 
         <style>
             html, body {
                 background-color: #fff;
@@ -62,6 +65,7 @@
                 margin-bottom: 30px;
             }
         </style>
+        -->
     </head>
     <body>
         <div class="flex-center position-ref full-height">
@@ -80,7 +84,7 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
+                <div class="title m-b-md bg-blue-500">
                     Laravel
                 </div>
 
