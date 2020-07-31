@@ -30,14 +30,11 @@ class ComicsController extends Controller
             'apikey' => $publicKey,
             'hash' => $hash,
         ])->json();
-        
-        dump($comicsLastMonth['data']['results']);
-        
-        //dd(config('services.marvelapi.private_key'));
+
+        //dump($comicsLastMonth['data']['results']);
         
         return view('index', [
-            'comicsLastMonth' => $comicsLastMonth['data']['results'],
-            'attribution' => $comicsLastMonth['attributionHTML'],
+            'comicsLastMonth' => $comicsLastMonth['data']['results']
         ]);
     }
 
