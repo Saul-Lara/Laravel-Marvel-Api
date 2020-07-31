@@ -12,31 +12,31 @@
 </head>
 <body class="font-sans bg-gray-900 text-white">
     <nav class="border-b border-gray-800">
-        <div class="container mx-auto flex items-center justify-between px-4 py-6">
-            <ul class="flex items-center">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between px-4 py-6">
+            <ul class="flex flex-col md:flex-row items-center">
                 <li>
                     <a href="#"><img src="{{ url('img/logo.png') }}" alt="logo" class="w-32"></a>
                 </li>
 
-                <li class="ml-16">
+                <li class="md:ml-16 mt-3 md:mt-0">
                     <a href="#" class="hover:text-gray-300">Comics</a>
                 </li>
 
-                <li class="ml-6">
+                <li class="md:ml-6 mt-3 md:mt-0">
                     <a href="#" class="hover:text-gray-300">Characters</a>
                 </li>
 
-                <li class="ml-6">
+                <li class="md:ml-6 mt-3 md:mt-0">
                     <a href="#" class="hover:text-gray-300">Creators</a>
                 </li>
 
             </ul>
 
-            <div class="flex items center">
-                <div class="relative">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="relative mt-3 md:mt-0">
                     <input type="text" class="bg-gray-800 text-sm rounded-full w-64 px-4 py-1" placeholder="Search...">
                 </div>
-                <div class="ml-4">
+                <div class="md:ml-4 mt-3 md:mt-0">
                     <a href="#">
                         <img src="{{ url('img/avatar.png') }}" alt="avatar" class="rounded-full w-8 h-8 ">
                     </a>
