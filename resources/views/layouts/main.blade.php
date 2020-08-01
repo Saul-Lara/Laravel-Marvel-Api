@@ -9,6 +9,8 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js" crossorigin="anonymous"></script>
 
+    <livewire:styles>
+
 </head>
 <body class="font-sans bg-gray-900 text-white">
     <nav class="border-b border-gray-800">
@@ -33,9 +35,7 @@
             </ul>
 
             <div class="flex flex-col md:flex-row items-center">
-                <div class="relative mt-3 md:mt-0">
-                    <input type="text" class="bg-gray-800 text-sm rounded-full w-64 px-4 py-1" placeholder="Search...">
-                </div>
+                <livewire:search-dropdown />
                 <div class="md:ml-4 mt-3 md:mt-0">
                     <a href="#">
                         <img src="{{ url('img/avatar.png') }}" alt="avatar" class="rounded-full w-8 h-8 ">
@@ -47,6 +47,8 @@
     </nav>
 
     @yield('content')
+
+    <livewire:scripts>
 
 </body>
 </html>
