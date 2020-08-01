@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="{{ url('css/main.css') }}">
 
-    <script src="https://kit.fontawesome.com/d95ad0b2c9.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js" crossorigin="anonymous"></script>
 
 </head>
 <body class="font-sans bg-gray-900 text-white">
@@ -15,11 +15,11 @@
         <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between px-4 py-6">
             <ul class="flex flex-col md:flex-row items-center">
                 <li>
-                    <a href="#"><img src="{{ url('img/logo.png') }}" alt="logo" class="w-32"></a>
+                    <a href="{{ url('/') }}"><img src="{{ url('img/logo.png') }}" alt="logo" class="w-32"></a>
                 </li>
 
                 <li class="md:ml-16 mt-3 md:mt-0">
-                    <a href="#" class="hover:text-gray-300">Comics</a>
+                    <a href="{{ url('/') }}" class="hover:text-gray-300">Comics</a>
                 </li>
 
                 <li class="md:ml-6 mt-3 md:mt-0">
