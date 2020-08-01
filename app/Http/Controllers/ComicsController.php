@@ -67,7 +67,33 @@ class ComicsController extends Controller
      */
     public function show($id)
     {
-        //
+        $timestamp = time();
+        $privateKey = config('services.marvelapi.private_key');
+        $publicKey = config('services.marvelapi.public_key');
+
+        $hash = md5($timestamp.$privateKey.$publicKey);
+
+        $comic = Http::get('https://gateway.marvel.com/v1/public/comics/'.$id , [
+            'ts' => $timestamp,
+            'apikey' => $publicKey,
+            'hash' => $hash,
+        ])->json();
+
+        $comicCharacters = Http::get('https://gateway.marvel.com/v1/public/comics/'.$id.'/characters' , [
+            'ts' => $timestamp,
+            'apikey' => $publicKey,
+            'hash' => $hash,
+        ])->json();
+
+        $comicData = $comic['data']['results'][0];
+        $comicCharactersData = $comicCharacters['data']['results'];
+
+        //dump($comicData);
+
+        return view('show', [
+            'comic' => $comicData,
+            'characters' => $comicCharactersData,
+        ]);
     }
 
     /**
