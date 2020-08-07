@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
+use App\ViewModels\ComicsViewModel;
+use App\ViewModels\ComicViewModel;
+
 class ComicsController extends Controller
 {
     /**
@@ -33,9 +36,17 @@ class ComicsController extends Controller
 
         //dump($comicsLastMonth['data']['results']);
         
+        /*
         return view('index', [
             'comicsLastMonth' => $comicsLastMonth['data']['results']
         ]);
+        */
+
+        $viewModel = new ComicsViewModel(
+            $comicsLastMonth['data']['results']
+        );
+
+        return view('index', $viewModel);
     }
 
     /**
@@ -90,10 +101,19 @@ class ComicsController extends Controller
 
         //dump($comicData);
 
+        /*
         return view('show', [
             'comic' => $comicData,
             'characters' => $comicCharactersData,
         ]);
+        */
+
+        $viewModel = new ComicViewModel(
+            $comicData,
+            $comicCharactersData,
+        );
+
+        return view('show', $viewModel);
     }
 
     /**
