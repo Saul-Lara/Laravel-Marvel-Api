@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
 use App\ViewModels\CharactersViewModel;
+use App\ViewModels\CharacterViewModel;
 
 class CharactersController extends Controller
 {
@@ -76,7 +77,30 @@ class CharactersController extends Controller
      */
     public function show($id)
     {
-        //
+        $timestamp = time();
+        $privateKey = config('services.marvelapi.private_key');
+        $publicKey = config('services.marvelapi.public_key');
+
+        $hash = md5($timestamp.$privateKey.$publicKey);
+
+        $character = Http::get('https://gateway.marvel.com/v1/public/characters/'.$id , [
+            'ts' => $timestamp,
+            'apikey' => $publicKey,
+            'hash' => $hash,
+        ])->json();
+
+        $relatedComics = Http::get('https://gateway.marvel.com/v1/public/characters/'.$id.'/comics' , [
+            'ts' => $timestamp,
+            'apikey' => $publicKey,
+            'hash' => $hash,
+        ])->json();
+
+        $viewModel = new CharacterViewModel(
+            $character['data']['results'][0],
+            $relatedComics['data']['results'],
+        );
+
+        return view('characters.show', $viewModel);
     }
 
     /**
