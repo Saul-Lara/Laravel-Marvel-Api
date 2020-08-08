@@ -7,10 +7,14 @@ use Spatie\ViewModels\ViewModel;
 class CharactersViewModel extends ViewModel
 {
     public $characters;
+    public $page;
+    public $totalPages;
 
-    public function __construct($characters)
+    public function __construct($characters, $page, $totalPages)
     {
         $this->characters = $characters;
+        $this->page = $page;
+        $this->totalPages = $totalPages;
     }
 
     public function characters()
@@ -22,6 +26,16 @@ class CharactersViewModel extends ViewModel
             ])->only([
                 'id', 'name', 'thumbnail', 'comics',
             ]);
-        })->dump();
+        });
+    }
+    
+    public function previous()
+    {
+        return $this->page > 1 ? $this->page - 1 :  null;
+    }
+
+    public function next()
+    {
+        return $this->page < $this->totalPages ? $this->page + 1 :  null;
     }
 }

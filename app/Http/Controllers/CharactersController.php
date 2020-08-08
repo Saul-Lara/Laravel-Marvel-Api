@@ -14,15 +14,16 @@ class CharactersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($page = 1)
     {
+        
         $timestamp = time();
         $privateKey = config('services.marvelapi.private_key');
         $publicKey = config('services.marvelapi.public_key');
 
         $hash = md5($timestamp.$privateKey.$publicKey);
 
-        $offset = 0;
+        $offset = ($page - 1) * 20;
 
         $characters = Http::get('https://gateway.marvel.com/v1/public/characters', [
             'orderBy' => 'name',
@@ -33,8 +34,14 @@ class CharactersController extends Controller
             'hash' => $hash,
         ])->json();
 
+        $totalPages = ceil($characters['data']['total']/20);
+
+        abort_if($page > $totalPages, 204);
+
         $viewModel = new CharactersViewModel(
-            $characters['data']['results']
+            $characters['data']['results'],
+            $page,
+            $totalPages,
         );
 
         return view('characters.index', $viewModel);

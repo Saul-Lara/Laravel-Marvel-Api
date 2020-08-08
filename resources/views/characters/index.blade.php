@@ -7,9 +7,9 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
                 @foreach ($characters as $character)
                     <div class="character mt-8">
-                        <a href="#"><img src="{{ $character['thumbnail'] }}" alt="{{ $character['name'].' avatar' }}" class="hover:opacity-75 transition ease-in-out duration-150"></a>
+                        <a href="{{ url("/characters/".$character['id'] ) }}"><img src="{{ $character['thumbnail'] }}" alt="{{ $character['name'].' avatar' }}" class="hover:opacity-75 transition ease-in-out duration-150"></a>
                         <div class="mt-2">
-                            <a href="#" class="text-lg mt-2 hover:text-gray-300">{{ $character['name'] }}</a>
+                            <a href="{{ url("/characters/".$character['id'] ) }}" class="text-lg mt-2 hover:text-gray-300">{{ $character['name'] }}</a>
                             <div class="text-sm truncate text-gray-400">{{ $character['comics'] }}</div>
                         </div>
                     </div>
@@ -17,9 +17,31 @@
             </div>
         </div>
 
-        <div class="flex justify-between mt-16">
-            <a href="#">Previous</a>
-            <a href="#">Next</a>
-        </div>
+        <div class="scroller-status my-8">
+            <div class="flex justify-center">
+                <div class="infinite-scroll-request spinner my-8 text-4xl">&nbsp;</div>
+            </div>
+            <div class="infinite-scroll-last">
+                <div class="bg-blue-100 border-l-4 border-blue-500 text-blue-700 p-4" role="alert">
+                    <p>End of content.</p>
+                </div>
+            </div>
+            <p class="infinite-scroll-error">Error</p>
+      </div>
     </div>
+
+@endsection
+
+@section('scripts')
+    <script src="https://unpkg.com/infinite-scroll@3/dist/infinite-scroll.pkgd.min.js"></script>
+
+    <script>
+        var elem = document.querySelector('.grid');
+        var infScroll = new InfiniteScroll( elem, {
+        // options
+        path: '/characters/page/@{{#}}',
+        append: '.character',
+        status: '.scroller-status',
+        });
+    </script>
 @endsection

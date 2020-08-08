@@ -21,6 +21,7 @@ Route::get('/', 'ComicsController@index')->name('comics.index');
 Route::get('/comics/{comic}', 'ComicsController@show')->name('comics.show');
 
 Route::get('/characters', 'CharactersController@index')->name('characters.index');
+Route::get('/characters/page/{page?}', 'CharactersController@index')->name('characters.index');
 Route::get('/characters/{character}', 'CharactersController@show')->name('characters.show');
 
 //Route::view('/', 'index');
