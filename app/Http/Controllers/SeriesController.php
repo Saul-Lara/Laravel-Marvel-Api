@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
 use App\ViewModels\SeriesViewModel;
+use App\ViewModels\SerieViewModel;
 
 class SeriesController extends Controller
 {
@@ -76,7 +77,30 @@ class SeriesController extends Controller
      */
     public function show($id)
     {
-        //
+        $timestamp = time();
+        $privateKey = config('services.marvelapi.private_key');
+        $publicKey = config('services.marvelapi.public_key');
+
+        $hash = md5($timestamp.$privateKey.$publicKey);
+
+        $serie = Http::get('https://gateway.marvel.com/v1/public/series/'.$id , [
+            'ts' => $timestamp,
+            'apikey' => $publicKey,
+            'hash' => $hash,
+        ])->json();
+
+        $comics = Http::get('https://gateway.marvel.com/v1/public/series/'.$id.'/comics' , [
+            'ts' => $timestamp,
+            'apikey' => $publicKey,
+            'hash' => $hash,
+        ])->json();
+
+        $viewModel = new SerieViewModel(
+            $serie['data']['results'][0],
+            $comics['data']['results'],
+        );
+
+        return view('series.show', $viewModel);
     }
 
     /**
