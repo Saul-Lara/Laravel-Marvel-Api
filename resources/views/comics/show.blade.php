@@ -23,7 +23,7 @@
 
                 <p class="text-gray-300 mt-8">
                     @if ($comic['description'])
-                        {{ $comic['description'] }}
+                        {!! $comic['description'] !!}
                     @else
                         <p>Description not available</p>
                     @endif
