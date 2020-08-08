@@ -5,10 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
-use App\ViewModels\ComicsViewModel;
-use App\ViewModels\ComicViewModel;
+use App\ViewModels\CharactersViewModel;
 
-class ComicsController extends Controller
+class CharactersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -23,30 +22,22 @@ class ComicsController extends Controller
 
         $hash = md5($timestamp.$privateKey.$publicKey);
 
-        $comicsLastMonth = Http::get('https://gateway.marvel.com/v1/public/comics', [
-            'format' => 'comic',
-            'formatType' => 'comic',
-            'dateDescriptor' => 'thisMonth',
-            'orderBy' => 'title',
-            'limit' => '10',
+        $offset = 0;
+
+        $characters = Http::get('https://gateway.marvel.com/v1/public/characters', [
+            'orderBy' => 'name',
+            'limit' => '20',
+            'offset' => $offset,
             'ts' => $timestamp,
             'apikey' => $publicKey,
             'hash' => $hash,
         ])->json();
 
-        //dump($comicsLastMonth['data']['results']);
-        
-        /*
-        return view('index', [
-            'comicsLastMonth' => $comicsLastMonth['data']['results']
-        ]);
-        */
-
-        $viewModel = new ComicsViewModel(
-            $comicsLastMonth['data']['results']
+        $viewModel = new CharactersViewModel(
+            $characters['data']['results']
         );
 
-        return view('comics.index', $viewModel);
+        return view('characters.index', $viewModel);
     }
 
     /**
@@ -78,42 +69,7 @@ class ComicsController extends Controller
      */
     public function show($id)
     {
-        $timestamp = time();
-        $privateKey = config('services.marvelapi.private_key');
-        $publicKey = config('services.marvelapi.public_key');
-
-        $hash = md5($timestamp.$privateKey.$publicKey);
-
-        $comic = Http::get('https://gateway.marvel.com/v1/public/comics/'.$id , [
-            'ts' => $timestamp,
-            'apikey' => $publicKey,
-            'hash' => $hash,
-        ])->json();
-
-        $comicCharacters = Http::get('https://gateway.marvel.com/v1/public/comics/'.$id.'/characters' , [
-            'ts' => $timestamp,
-            'apikey' => $publicKey,
-            'hash' => $hash,
-        ])->json();
-
-        $comicData = $comic['data']['results'][0];
-        $comicCharactersData = $comicCharacters['data']['results'];
-
-        //dump($comicData);
-
-        /*
-        return view('show', [
-            'comic' => $comicData,
-            'characters' => $comicCharactersData,
-        ]);
-        */
-
-        $viewModel = new ComicViewModel(
-            $comicData,
-            $comicCharactersData,
-        );
-
-        return view('comics.show', $viewModel);
+        //
     }
 
     /**

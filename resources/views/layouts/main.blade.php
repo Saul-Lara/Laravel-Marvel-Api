@@ -27,7 +27,7 @@
                 </li>
 
                 <li class="md:ml-6 mt-3 md:mt-0">
-                    <a href="#" class="hover:text-gray-300">Characters</a>
+                    <a href="{{ url('/characters') }}" class="hover:text-gray-300">Characters</a>
                 </li>
 
                 <li class="md:ml-6 mt-3 md:mt-0">
@@ -49,6 +49,19 @@
     </nav>
 
     @yield('content')
+
+    <div class="w-full bg-blue-900">
+        <div class="flex flex-wrap text-center text-white">
+          <div class="w-full p-3 text-left">
+            <p class="p-3 text-gray-400">
+                Developed by <a href="https://github.com/Saul-Lara" class="p-1 bg-gray-900 text-white">Saul Lara</a>
+            </p>
+            <p class="p-3 text-gray-400">
+                Data provided by <a href="https://marvel.com" class="p-1 bg-red-700 text-white font-bold">Marvel</a>. ©{{ date('Y') }} Marvel
+            </p>
+          </div>
+        </div>
+      </div>
 
     <livewire:scripts>
 
