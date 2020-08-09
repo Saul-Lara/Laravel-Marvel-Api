@@ -3,7 +3,9 @@
 ## Laravel Marvel Api
 <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/Saul-Lara/Laravel-Marvel-Api?style=flat-square"> <img alt="GitHub" src="https://img.shields.io/github/license/Saul-Lara/Laravel-Marvel-Api?style=flat-square"> <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/Saul-Lara/Laravel-Marvel-Api?color=green&style=flat-square">
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+A simple project displaying data of comics, characters and series.  
+This pages was built to practice Laravel Framework and Livewire.  
+Especially to understand how to work with an external api with json, in this case with Marvel API.
 
 ## :rocket: Built With
 
