@@ -53,6 +53,11 @@ In order to use the Laravel app, you need to obtain an :key: [***Marvel API key*
 
 ![comicDetails](https://raw.githubusercontent.com/Saul-Lara/Laravel-Marvel-Api/master/readmeAssets/comicDetails.gif)
 
+#### Infinite scroll
+It's used in the routes `/characters` and `/series`.
+
+![infiniteScroll](https://raw.githubusercontent.com/Saul-Lara/Laravel-Marvel-Api/master/readmeAssets/infiniteScroll.gif)
+
 ##  :scroll: Legal
 
 Data provided by ©Marvel.
