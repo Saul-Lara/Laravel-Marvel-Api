@@ -34,6 +34,21 @@ In order to use the Laravel app, you need to obtain an :key: [***Marvel API key*
 
 ## :computer: How to use?
 
+### Routes
+
+* `/` - *List of the first 10 comics of the month.*
+* `/comics/{id}` - *View comic details by id.*
+* `/characters` - *List of characters.*
+* `/characters/page/{page}` - *List of characters by page.*
+* `/characters/{id}` - *View character details by id.*
+* `/series` - *List of series.*
+* `/series/page/{page}` - *List of series by page.*
+* `/series/{id}` - *View series details by id.*
+
+#### Comics
+
+![comicsView](https://github.com/Saul-Lara/Laravel-Marvel-Api/tree/master/readmeAssets/comicsView.JPG)
+
 ##  :scroll: Legal
 
 Data provided by ©Marvel.
