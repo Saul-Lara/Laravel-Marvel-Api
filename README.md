@@ -60,12 +60,17 @@ It's used in the routes `/characters` and `/series`.
 
 #### Character details
 
-![characterDetails](https://raw.githubusercontent.com/Saul-Lara/Laravel-Marvel-Api/master/readmeAssets/characterDetails.gif)
+![characterDetails](https://raw.githubusercontent.com/Saul-Lara/Laravel-Marvel-Api/master/readmeAssets/characterDetails.JPG)
 
 #### Serie details
 
-![serieDetails](https://raw.githubusercontent.com/Saul-Lara/Laravel-Marvel-Api/master/readmeAssets/serieDetails.gif)
+![serieDetails](https://raw.githubusercontent.com/Saul-Lara/Laravel-Marvel-Api/master/readmeAssets/serieDetails.JPG)
 
+#### Search comics
+It's used in all routes.  
+You need press `Shift + 7` or `/` to focus the search input.
+
+![searchComics](https://raw.githubusercontent.com/Saul-Lara/Laravel-Marvel-Api/master/readmeAssets/searchComic.gif)
 
 ##  :scroll: Legal
 
