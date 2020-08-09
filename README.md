@@ -58,6 +58,15 @@ It's used in the routes `/characters` and `/series`.
 
 ![infiniteScroll](https://raw.githubusercontent.com/Saul-Lara/Laravel-Marvel-Api/master/readmeAssets/infiniteScroll.gif)
 
+#### Character details
+
+![characterDetails](https://raw.githubusercontent.com/Saul-Lara/Laravel-Marvel-Api/master/readmeAssets/characterDetails.gif)
+
+#### Serie details
+
+![serieDetails](https://raw.githubusercontent.com/Saul-Lara/Laravel-Marvel-Api/master/readmeAssets/serieDetails.gif)
+
+
 ##  :scroll: Legal
 
 Data provided by ©Marvel.
