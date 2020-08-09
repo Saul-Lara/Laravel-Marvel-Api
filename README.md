@@ -49,6 +49,10 @@ In order to use the Laravel app, you need to obtain an :key: [***Marvel API key*
 
 ![comicsView](https://raw.githubusercontent.com/Saul-Lara/Laravel-Marvel-Api/master/readmeAssets/comicsView.JPG)
 
+#### Comic details
+
+![comicDetails](https://raw.githubusercontent.com/Saul-Lara/Laravel-Marvel-Api/master/readmeAssets/comicDetails.gif)
+
 ##  :scroll: Legal
 
 Data provided by ©Marvel.
